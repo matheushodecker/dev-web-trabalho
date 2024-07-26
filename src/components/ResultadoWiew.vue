@@ -1,75 +1,56 @@
 <script setup>
-import { reactive } from 'vue'
+defineProps(['produtos']);
 
-const produto = reactive({
-  nome: 'nome',
-  email: 'email',
-  senha: 'senha',
-  Csenha: 'confirmacao senha',
-  DataNascimento: 'data nascimento',
-  endereco: 'endereco',
-  cidade: 'cidade',
-  estado: 'estado',
-  hobbies: 'hobbies',
-  linguagem: 'linguagem programação',
-  biografia: 'biografia'
-})
 </script>
 
 <template>
-  <div class="container">
-    <div class="resultado">
-      <h2>resultados</h2>
+    <table>
+        <tbody>
+            <tr v-for="produto in produtos" :key="produto.id">
 
-      <p>nome: {{ produto.nome }}</p>
-      <p>email: {{ produto.email }}</p>
-      <P>senha: {{ produto.senha }}</P>
-      <p>Csenha: {{ produto.Csenha }}</p>
-      <p>Data: {{ produto.DataNascimento }}</p>
-      <p>endereco: {{ produto.endereco }}</p>
-      <p>cidade: {{ produto.cidade }}</p>
-      <p>estado: {{ produto.estado }}</p>
-      <p>hobbies: {{ produto.hobbies }}</p>
-      <p>linguagem: {{ produto.linguagem }}</p>
-      <p>biografia: {{ produto.biografia }}</p>
-      <p>{{ mostrarResultado }}</p>
-      <button @click="mostrarResultado = false">mostrar</button>
-    </div>
-  </div>
+                <td>nome: {{ produto.nome }}</td>
+                <td>email: {{ produto.email }}</td>
+                <td>senha: {{ produto.senha }}</td>
+                <td>Csenha: {{ produto.Csenha }}</td>
+                <td>Data: {{ produto.DataNascimento }}</td>
+                <td>endereco: {{ produto.endereco }}</td>
+                <td>cidade: {{ produto.cidade }}</td>
+                <td>estado: {{ produto.estado }}</td>
+                <td>hobbies: {{ produto.hobbies }}</td>
+                <td>linguagem: {{ produto.linguagem }}</td>
+                <td>biografia: {{ produto.biografia }}</td>
+                <td>{{ mostrarResultado }}</td>
+
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <style scoped>
-template {
-  background-color: black;
-}
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1.5rem;
-  width: 100vw;
-  padding: 25vh 5vh;
+.resultado-table {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.formularios,
-.resultado {
-  width: 45%;
-  border-radius: 10px;
-  padding: 25px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-.formularios {
-  background-color: #c4c500;
+thead {
+  background-color: #f4f4f4;
 }
 
-.row {
-  margin: 10px 20px;
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.resultado {
-  background-color: #c4c4c4;
+th {
+  background-color: #4CAF50;
+  color: white;
 }
 </style>
